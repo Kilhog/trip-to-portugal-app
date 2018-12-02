@@ -19,26 +19,41 @@ export namespace Components {
   interface AppLogin {}
   interface AppLoginAttributes extends StencilHTMLAttributes {}
 
+  interface AppPlanningEdit {}
+  interface AppPlanningEditAttributes extends StencilHTMLAttributes {}
+
+  interface AppPlanning {}
+  interface AppPlanningAttributes extends StencilHTMLAttributes {}
+
   interface AppProfile {}
   interface AppProfileAttributes extends StencilHTMLAttributes {}
 
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
+
+  interface AppTabs {}
+  interface AppTabsAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
   interface StencilElementInterfaces {
     'AppHome': Components.AppHome;
     'AppLogin': Components.AppLogin;
+    'AppPlanningEdit': Components.AppPlanningEdit;
+    'AppPlanning': Components.AppPlanning;
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
+    'AppTabs': Components.AppTabs;
   }
 
   interface StencilIntrinsicElements {
     'app-home': Components.AppHomeAttributes;
     'app-login': Components.AppLoginAttributes;
+    'app-planning-edit': Components.AppPlanningEditAttributes;
+    'app-planning': Components.AppPlanningAttributes;
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
+    'app-tabs': Components.AppTabsAttributes;
   }
 
 
@@ -54,6 +69,18 @@ declare global {
     new (): HTMLAppLoginElement;
   };
 
+  interface HTMLAppPlanningEditElement extends Components.AppPlanningEdit, HTMLStencilElement {}
+  var HTMLAppPlanningEditElement: {
+    prototype: HTMLAppPlanningEditElement;
+    new (): HTMLAppPlanningEditElement;
+  };
+
+  interface HTMLAppPlanningElement extends Components.AppPlanning, HTMLStencilElement {}
+  var HTMLAppPlanningElement: {
+    prototype: HTMLAppPlanningElement;
+    new (): HTMLAppPlanningElement;
+  };
+
   interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {}
   var HTMLAppProfileElement: {
     prototype: HTMLAppProfileElement;
@@ -66,18 +93,30 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLAppTabsElement extends Components.AppTabs, HTMLStencilElement {}
+  var HTMLAppTabsElement: {
+    prototype: HTMLAppTabsElement;
+    new (): HTMLAppTabsElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement
     'app-login': HTMLAppLoginElement
+    'app-planning-edit': HTMLAppPlanningEditElement
+    'app-planning': HTMLAppPlanningElement
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
+    'app-tabs': HTMLAppTabsElement
   }
 
   interface ElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-login': HTMLAppLoginElement;
+    'app-planning-edit': HTMLAppPlanningEditElement;
+    'app-planning': HTMLAppPlanningElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'app-tabs': HTMLAppTabsElement;
   }
 
 

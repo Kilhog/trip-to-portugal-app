@@ -27,9 +27,6 @@ export class AppProfile {
     return [
       <ion-header>
         <ion-toolbar color="primary">
-          <ion-buttons slot="start">
-            <ion-back-button defaultHref="/" />
-          </ion-buttons>
           <ion-title>Profile</ion-title>
         </ion-toolbar>
       </ion-header>,

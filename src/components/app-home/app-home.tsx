@@ -23,8 +23,8 @@ export class AppHome {
       </ion-header>,
 
       <ion-content padding>
-      
         <ion-button href="/profile/ionic" expand="block">Profile page</ion-button>
+        <ion-button href="/planning" expand="block">Planning</ion-button>
       </ion-content>
     ];
   }
