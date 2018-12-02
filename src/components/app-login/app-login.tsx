@@ -1,13 +1,19 @@
 import { Component } from '@stencil/core';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-
+import firebase from 'firebase';
 
 @Component({
   tag: 'app-login',
   styleUrl: 'app-login.css'
 })
 export class AppLogin {
+
+  componentWillLoad() {
+    firebase.auth().onAuthStateChanged(currentUser => {
+      if(currentUser) {
+        (document.querySelector('ion-nav') as HTMLIonNavElement).setRoot('app-home');
+      }
+    })
+  }
 
   render() {
     return [

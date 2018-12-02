@@ -19,12 +19,8 @@ export namespace Components {
   interface AppLogin {}
   interface AppLoginAttributes extends StencilHTMLAttributes {}
 
-  interface AppProfile {
-    'name': string;
-  }
-  interface AppProfileAttributes extends StencilHTMLAttributes {
-    'name'?: string;
-  }
+  interface AppProfile {}
+  interface AppProfileAttributes extends StencilHTMLAttributes {}
 
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}

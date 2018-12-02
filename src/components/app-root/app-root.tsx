@@ -1,4 +1,6 @@
 import { Component, Prop, Listen } from '@stencil/core';
+import firebase from 'firebase';
+import { firebaseConfig } from '../../helpers/config';
 
 @Component({
   tag: 'app-root',
@@ -7,6 +9,10 @@ import { Component, Prop, Listen } from '@stencil/core';
 export class AppRoot {
 
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: HTMLIonToastControllerElement;
+
+  componentWillLoad() {
+    this.configureFirebase();
+  }
 
   /**
    * Handle service worker updates correctly.
@@ -27,6 +33,10 @@ export class AppRoot {
     await toast.present();
     await toast.onWillDismiss();
     window.location.reload();
+  }
+
+  configureFirebase() {
+    firebase.initializeApp(firebaseConfig);
   }
 
   render() {

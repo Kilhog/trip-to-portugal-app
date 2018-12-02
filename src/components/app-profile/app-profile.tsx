@@ -1,5 +1,5 @@
-import { Component, Prop, State } from '@stencil/core';
-import { sayHello } from '../../helpers/utils';
+import { Component, State } from '@stencil/core';
+import firebase from 'firebase';
 
 @Component({
   tag: 'app-profile',
@@ -7,51 +7,53 @@ import { sayHello } from '../../helpers/utils';
 })
 export class AppProfile {
 
-  @State() state = false;
-  @Prop() name: string;
+  @State() currentUser = null;
 
-  @Prop({ connect: 'ion-alert-controller' }) alertCtrl: HTMLIonAlertControllerElement;
-
-  formattedName(): string {
-    if (this.name) {
-      return this.name.substr(0, 1).toUpperCase() + this.name.substr(1).toLowerCase();
-    }
-    return '';
+  componentWillLoad() {
+    firebase.auth().onAuthStateChanged(currentUser => {
+      if(currentUser) {
+        this.currentUser = currentUser;
+      } else {
+        (document.querySelector('ion-nav') as HTMLIonNavElement).setRoot('app-login');
+      }
+    })
   }
 
   render() {
+    if (this.currentUser === null) {
+      return null;
+    }
+
     return [
       <ion-header>
         <ion-toolbar color="primary">
           <ion-buttons slot="start">
             <ion-back-button defaultHref="/" />
           </ion-buttons>
-          <ion-title>Profile: {this.name}</ion-title>
+          <ion-title>Profile</ion-title>
         </ion-toolbar>
       </ion-header>,
 
       <ion-content padding>
-        <p>
-          {sayHello()}! My name is {this.formattedName()}. My name was passed in through a
-          route param!
-        </p>
+        <ion-grid>
+          <ion-row>
+            <ion-col align-self-center size="auto">
+              <ion-avatar>
+                <img src={this.currentUser.photoURL}/>
+              </ion-avatar>
+            </ion-col>
+            <ion-col>
+              <div>
+                <p>Nom : {this.currentUser.displayName}</p>
+                <p>Email : {this.currentUser.email}</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-        <ion-item>
-          <ion-label>Setting ({this.state.toString()})</ion-label>
-          <ion-toggle
-            checked={this.state}
-            onIonChange={ev => (this.state = ev.detail.checked)}
-          />
-        </ion-item>
-        <ion-button size="small" onClick={async () => {
-              const toast = await this.alertCtrl.create({
-                header: 'Alert',
-                subHeader: 'Subtitle',
-                message: 'This is an alert message.',
-                buttons: ['OK']
-                });
-              await toast.present();
-        }}>Small Button</ion-button>
+        <ion-button onClick={() => firebase.auth().signOut()}>
+          Logout
+        </ion-button>
       </ion-content>
     ];
   }
