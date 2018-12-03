@@ -49,7 +49,6 @@ export class AppRoot {
             <ion-route url="/planning" component="tab-planning"/>
           </ion-route>
           <ion-route url="/login" component="app-login" />
-          <ion-route url="/planning/edit" component="app-planning-edit" />
         </ion-router>
         <ion-nav />
       </ion-app>

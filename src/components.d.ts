@@ -19,9 +19,6 @@ export namespace Components {
   interface AppLogin {}
   interface AppLoginAttributes extends StencilHTMLAttributes {}
 
-  interface AppPlanningEdit {}
-  interface AppPlanningEditAttributes extends StencilHTMLAttributes {}
-
   interface AppPlanning {}
   interface AppPlanningAttributes extends StencilHTMLAttributes {}
 
@@ -33,27 +30,30 @@ export namespace Components {
 
   interface AppTabs {}
   interface AppTabsAttributes extends StencilHTMLAttributes {}
+
+  interface ModalPlanningEdit {}
+  interface ModalPlanningEditAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
   interface StencilElementInterfaces {
     'AppHome': Components.AppHome;
     'AppLogin': Components.AppLogin;
-    'AppPlanningEdit': Components.AppPlanningEdit;
     'AppPlanning': Components.AppPlanning;
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
     'AppTabs': Components.AppTabs;
+    'ModalPlanningEdit': Components.ModalPlanningEdit;
   }
 
   interface StencilIntrinsicElements {
     'app-home': Components.AppHomeAttributes;
     'app-login': Components.AppLoginAttributes;
-    'app-planning-edit': Components.AppPlanningEditAttributes;
     'app-planning': Components.AppPlanningAttributes;
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
     'app-tabs': Components.AppTabsAttributes;
+    'modal-planning-edit': Components.ModalPlanningEditAttributes;
   }
 
 
@@ -67,12 +67,6 @@ declare global {
   var HTMLAppLoginElement: {
     prototype: HTMLAppLoginElement;
     new (): HTMLAppLoginElement;
-  };
-
-  interface HTMLAppPlanningEditElement extends Components.AppPlanningEdit, HTMLStencilElement {}
-  var HTMLAppPlanningEditElement: {
-    prototype: HTMLAppPlanningEditElement;
-    new (): HTMLAppPlanningEditElement;
   };
 
   interface HTMLAppPlanningElement extends Components.AppPlanning, HTMLStencilElement {}
@@ -99,24 +93,30 @@ declare global {
     new (): HTMLAppTabsElement;
   };
 
+  interface HTMLModalPlanningEditElement extends Components.ModalPlanningEdit, HTMLStencilElement {}
+  var HTMLModalPlanningEditElement: {
+    prototype: HTMLModalPlanningEditElement;
+    new (): HTMLModalPlanningEditElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement
     'app-login': HTMLAppLoginElement
-    'app-planning-edit': HTMLAppPlanningEditElement
     'app-planning': HTMLAppPlanningElement
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
     'app-tabs': HTMLAppTabsElement
+    'modal-planning-edit': HTMLModalPlanningEditElement
   }
 
   interface ElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-login': HTMLAppLoginElement;
-    'app-planning-edit': HTMLAppPlanningEditElement;
     'app-planning': HTMLAppPlanningElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
     'app-tabs': HTMLAppTabsElement;
+    'modal-planning-edit': HTMLModalPlanningEditElement;
   }
 
 
